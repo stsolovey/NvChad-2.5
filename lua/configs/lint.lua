@@ -2,7 +2,6 @@ local lint = require("lint")
 
 lint.linters_by_ft = {
     lua = { "luacheck" },
-    -- haskell = { "hlint" },
     python = { "flake8" },
     go = { "golangci-lint" },
 }
@@ -20,10 +19,11 @@ lint.linters.luacheck.args = {
 
 lint.linters["golangci-lint"] = {
     cmd = "golangci-lint",
-    args = { "run" },
+    args = { "run", "--config", ".golangci.yml" },
     stdin = false,
     stream = "stdout",
     ignore_exitcode = true,
+    cwd = vim.fn.getcwd(),
     parser = function(output, _bufnr)
         local diagnostics = {}
         for _, line in ipairs(vim.split(output, "\n")) do
@@ -45,12 +45,12 @@ lint.linters["golangci-lint"] = {
     end,
 }
 
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
     callback = function()
         lint.try_lint()
     end,
 })
 
 vim.api.nvim_create_user_command("Lint", function()
-    require("lint").try_lint()
+    lint.try_lint()
 end, {})

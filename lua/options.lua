@@ -8,3 +8,7 @@ o.tabstop = 4
 o.softtabstop = 4
 
 -- o.cursorlineopt ='both' -- to enable cursorline!
+
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.foldlevel = 99

@@ -166,4 +166,45 @@ return {
         "nvim-neotest/nvim-nio",
         lazy = false,
     },
+
+    {
+        "ellisonleao/glow.nvim",
+        cmd = "Glow",
+        config = function()
+            require("glow").setup()
+        end,
+    },
+
+    {
+        "folke/trouble.nvim",
+        dependencies = "nvim-tree/nvim-web-devicons",
+        lazy = false,
+        config = function()
+            require("trouble").setup({})
+        end,
+    },
+
+    -- {
+    --     "nvim-telescope/telescope.nvim",
+    --     dependencies = { "nvim-lua/plenary.nvim" },
+    --     cmd = "Telescope",
+    --     config = function()
+    --         require("telescope").setup({
+    --             defaults = {
+    --                 mappings = {
+    --                     i = {
+    --                         ["<C-u>"] = false,
+    --                         ["<C-d>"] = false,
+    --                     },
+    --                 },
+    --             },
+    --         })
+    --     end,
+    -- },
+    --
+    -- {
+    --     "junegunn/fzf.vim",
+    --     cmd = { "Files", "Rg", "Buffers" },
+    --     dependencies = { "junegunn/fzf", build = ":call fzf#install()" },
+    -- },
 }

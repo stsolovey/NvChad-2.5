@@ -132,10 +132,13 @@ map(
     { desc = "DAP Hover (Floating Window)" }
 )
 
-
 -- Scopes Widget
-map("n", "<leader>ds", ":lua local widgets=require('dap.ui.widgets');widgets.centered_float(widgets.scopes)<CR>", { desc = "DAP Scopes" })
-
+map(
+    "n",
+    "<leader>ds",
+    ":lua local widgets=require('dap.ui.widgets');widgets.centered_float(widgets.scopes)<CR>",
+    { desc = "DAP Scopes" }
+)
 
 -- Debug Nearest Test
 map(
@@ -152,3 +155,10 @@ map(
     ":lua require('dap-go').debug_last_test()<CR>",
     { desc = "Debug Last Test" }
 )
+
+-- -- Telescope поиск по файлам и тексту
+--
+-- map("n", "<leader>ff", ":Telescope find_files<CR>", { desc = "Find files" })
+-- map("n", "<leader>fg", ":Telescope live_grep<CR>", { desc = "Live grep" })
+-- map("n", "<leader>fb", ":Telescope buffers<CR>", { desc = "Find buffers" })
+-- map("n", "<leader>fh", ":Telescope help_tags<CR>", { desc = "Help tags" })
