@@ -166,4 +166,8 @@ return {
         "nvim-neotest/nvim-nio",
         lazy = false,
     },
+    {
+        "vim-test/vim-test",
+        event = "VeryLazy",
+    },
 }
