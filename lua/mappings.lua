@@ -132,10 +132,13 @@ map(
     { desc = "DAP Hover (Floating Window)" }
 )
 
-
 -- Scopes Widget
-map("n", "<leader>ds", ":lua local widgets=require('dap.ui.widgets');widgets.centered_float(widgets.scopes)<CR>", { desc = "DAP Scopes" })
-
+map(
+    "n",
+    "<leader>ds",
+    ":lua local widgets=require('dap.ui.widgets');widgets.centered_float(widgets.scopes)<CR>",
+    { desc = "DAP Scopes" }
+)
 
 -- Debug Nearest Test
 map(
@@ -151,4 +154,63 @@ map(
     "<leader>dgl",
     ":lua require('dap-go').debug_last_test()<CR>",
     { desc = "Debug Last Test" }
+)
+
+-- Открыть интерфейс DBUI
+map("n", "<leader>db", ":DBUI<CR>", {
+    desc = "Открыть интерфейс DBUI",
+    noremap = true,
+    silent = true,
+})
+
+-- Открыть интерфейс DBee
+map(
+    "n",
+    "<leader>do",
+    ":lua require('dbee').open()<CR>",
+    { desc = "Открыть DBee UI" }
+)
+
+-- Закрыть интерфейс DBee
+map(
+    "n",
+    "<leader>dc",
+    ":lua require('dbee').close()<CR>",
+    { desc = "Закрыть DBee UI" }
+)
+
+-- Запустить выделенный запрос
+map(
+    "v",
+    "<leader>dq",
+    ":lua require('dbee').api.core.run_selection()<CR>",
+    { desc = "DBee: Запустить выделенный запрос" }
+)
+
+-- Запустить весь запрос в scratchpad
+map(
+    "n",
+    "<leader>da",
+    ":lua require('dbee').api.core.run_all()<CR>",
+    { desc = "DBee: Запустить весь запрос" }
+)
+
+-- Следующая страница результатов
+map(
+    "n",
+    "<leader>dn",
+    ":lua require('dbee').api.ui.result_page_next()<CR>",
+    {
+        desc = "DBee: Следующая страница результатов",
+    }
+)
+
+-- Предыдущая страница результатов
+map(
+    "n",
+    "<leader>dp",
+    ":lua require('dbee').api.ui.result_page_prev()<CR>",
+    {
+        desc = "DBee: Предыдущая страница результатов",
+    }
 )
