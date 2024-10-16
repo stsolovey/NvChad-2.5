@@ -206,4 +206,19 @@ return {
             require("dbee").setup(--[[optional config]])
         end,
     },
+    {
+        "azratul/live-share.nvim",
+        dependencies = {
+            "jbyuki/instant.nvim",
+        },
+        config = function()
+            vim.g.instant_username = "ssolovey"
+            require("live-share").setup({
+                port_internal = 9876,
+                max_attempts = 20,
+                service = "localhost.run",
+                -- service = "serveo.net",
+            })
+        end,
+    },
 }
